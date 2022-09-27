@@ -6,10 +6,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
+
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    Product findByPostId(Long postId);
+    Product findByProductId(Long productId);
     @Override
     List<Product> findAll();
 
