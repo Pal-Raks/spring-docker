@@ -18,6 +18,8 @@ public class Product {
 
     @Id
     @GeneratedValue
+    private Long id;
+    @Column(name = "product_id", nullable = false)
     private Long productId;
     @Column(name = "product_details", nullable = false)
     private String productDetails;

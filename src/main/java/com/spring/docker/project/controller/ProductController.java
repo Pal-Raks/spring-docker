@@ -26,7 +26,7 @@ public class ProductController {
     public ResponseEntity<List<Product>> getAllPosts(){
         return new ResponseEntity<>(productService.getAllPosts(), HttpStatus.OK);
     }
-    @PostMapping("/posts")
+    @PostMapping("/products")
     public ResponseEntity<Product> createPost(@RequestBody Product product){
         productService.savePost(product);
         return new ResponseEntity<>(product,HttpStatus.CREATED);
