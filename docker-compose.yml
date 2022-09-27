@@ -1,0 +1,25 @@
+version: '3.4'
+services:
+  myspringapp:
+    image: products
+    build: .
+    ports:
+      - "8080:9002"
+    restart: always
+    depends_on:
+      - myPostgresDB
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://myPostgresDB:5432/productsDB
+      - SPRING_DATASOURCE_USERNAME=paladmin
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create
+
+  myPostgresDB:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=paladmin
+      - POSTGRES_DB=productsDB
